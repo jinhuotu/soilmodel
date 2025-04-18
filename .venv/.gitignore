@@ -1,0 +1,134 @@
+
+# 虚拟环境
+**/.venv/
+**/venv/
+**/env/
+**/pip-env/
+
+# 编译文件
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.egg
+.pytest_cache/
+
+# 打包输出
+dist/
+build/
+*.whl
+*.tar.gz
+
+# 日志与数据库
+*.log
+*.sqlite
+*.db
+
+# 单元测试输出
+.coverage
+htmlcov/
+.coverage.*
+test-results.xml
+
+# ===================================
+# IDE/编辑器配置
+# ===================================
+
+# PyCharm
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+!.vscode/settings.json  # 可保留必要配置（按需取消注释）
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# ===================================
+# 大模型/机器学习专项
+# ===================================
+
+# 模型权重文件
+*.bin
+*.pth
+*.h5
+*.ckpt
+
+# 向量数据库存储
+chroma.sqlite3
+faiss_index/
+
+# 训练中间结果
+checkpoints/
+experiments/  # （若需版本控制实验记录，可移除此项）
+wandb/
+
+# 数据集（通过 Git LFS/DVC 管理）
+data/raw/
+data/processed/
+
+# ===================================
+# 环境与敏感文件
+# ===================================
+
+# 本地环境变量
+.env
+.env.local
+.env.*.local
+secrets.yml
+
+# 配置文件（按需排除）
+configs/local_*.yaml
+
+# API 密钥文件
+*.key
+*.pem
+
+# ===================================
+# 操作系统生成文件
+# ===================================
+
+# macOS
+.DS_Store
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+.fuse_hidden*
+
+# ===================================
+# 依赖管理工具
+# ===================================
+
+# Poetry
+poetry.lock  # （⚠️ 重要：通常应该提交，除非明确不锁定版本）
+
+# PDM
+.pdm.toml
+__pypackages__/
+
+# pip
+pip-selfcheck.json
+
+# ===================================
+# 其他工具链
+# ===================================
+
+# DVC（若未用 Git LFS）
+.dvc/tmp/
+.dvc/cache/
+
+# Docker
+docker-compose.override.yml
+
+# 临时文件
+*.tmp
+*.bak
