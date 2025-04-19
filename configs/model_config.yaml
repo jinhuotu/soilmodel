@@ -1,0 +1,66 @@
+# configs/model_config.yaml
+
+# ========================
+# 通用配置
+# ========================
+system:
+  env: "dev"  # 环境模式: dev/test/prod
+  log_level: "INFO"
+  cache_dir: "data/cache"  # 模型/数据缓存路径
+
+# ========================
+# 大语言模型配置
+# ========================
+llm:
+  # OpenAI 配置
+  openai:
+    enabled: true  # 是否启用
+    model_name: "gpt-4-0125-preview"
+    api_key: "sk-your-key-here"  # 替换为实际 API Key
+    temperature: 0.7
+    max_tokens: 1024
+    timeout: 30  # API 超时时间（秒）
+
+  # DeepSeek 本地部署配置
+  deepseek:
+    enabled: false
+    model_path: "models/deepseek-7b-chat"
+    device: "cuda:0"  # cuda/cpu
+    precision: "fp16"  # fp32/fp16/bf16
+    max_seq_len: 4096
+
+# ========================
+# 嵌入模型配置
+# ========================
+embedding:
+  model_name: "text-embedding-3-small"  # 或 "BAAI/bge-small-zh-v1.5"
+  cache_dir: "data/embeddings"
+  batch_size: 32  # 批量编码大小
+
+# ========================
+# 向量数据库配置
+# ========================
+vectordb:
+  type: "chroma"  # chroma/faiss/pinecone
+  persist_dir: "data/vector_db"  # 本地持久化路径
+  index_config:
+    metric_type: "cosine"  # 相似度计算方式
+    ef_construction: 200  # HNSW 索引参数
+
+# ========================
+# 检索策略配置
+# ========================
+retrieval:
+  chunk_size: 512  # 文本分块大小（token数）
+  chunk_overlap: 50  # 块间重叠量
+  rerank_enabled: true  # 是否启用重排序
+  top_k: 5  # 返回结果数量
+
+# ========================
+# 性能优化配置
+# ========================
+performance:
+  enable_batching: true
+  max_concurrency: 4  # 最大并发请求数
+  cache_embeddings: true
+  thread_pool_size: 2  # CPU 密集型任务线程数
